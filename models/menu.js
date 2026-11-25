@@ -1,6 +1,6 @@
 const { default: mongoose, Collection } = require("mongoose");
 
-let menuModel = mongoose.Schema({
+let menuModel = new mongoose.Schema({
     name: String,
     side: String,
     drink: String,
@@ -10,4 +10,4 @@ let menuModel = mongoose.Schema({
 {
     Collection: "menu"
 });
-module.exports=mongoose.model('Menu',menuModel);
+module.exports=mongoose.model('Menu',menuModel,'menu');

@@ -1,0 +1,28 @@
+<%- include('../partials/header.ejs') %>
+
+<main class="container">
+    <div class="row">
+        <div class="offset-md-1 col-md-10">
+            <h1><%= title %></h1>
+            <br>
+            <table class="table table-bordered table-striped table-hover">
+                <tr class="d-flex">
+                    <th class="text-center col-3">Name</th>
+                    <th class="text-center col-2">Side</th>
+                    <th class="text-center col-2">Drink</th>
+                    <th class="text-center col-2">Sauce</th>
+                    <th class="text-center col-1">Price</th>
+                </tr>
+                <% for (let count=0; count < Menuitems.length; count++) { %>
+                    <tr>
+                        <td class="text-center col-2"><%= Menuitems[count].name %></td>
+                        <td class="text-center col-2"><%= Menuitems[count].side %></td>
+                        <td class="text-center col-2"><%= Menuitems[count].drink %></td>
+                        <td class="text-center col-2"><%= Menuitems[count].sauce %></td>
+                        <td class="text-center col-2"><%= Menuitems[count].price %></td>
+                    </tr>
+                <%} %>
+            </table>
+        </div>
+    </div>
+</main>
