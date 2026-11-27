@@ -3,25 +3,39 @@
 <main class="container">
     <div class="row">
         <div class="offset-md-1 col-md-10">
-            <h1><%= title %></h1>
-            <br>
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h1><%= title %></h1>
+                <a href="/menu/add" class="btn btn-primary">Add Data</a>
+            </div>
             <table class="table table-bordered table-striped table-hover">
-                <tr class="d-flex">
-                    <th class="text-center col-3">Name</th>
-                    <th class="text-center col-2">Side</th>
-                    <th class="text-center col-2">Drink</th>
-                    <th class="text-center col-2">Sauce</th>
-                    <th class="text-center col-1">Price</th>
-                </tr>
-                <% for (let count=0; count < Menuitems.length; count++) { %>
+                <thead class="table-dark">
                     <tr>
-                        <td class="text-center col-2"><%= Menuitems[count].name %></td>
-                        <td class="text-center col-2"><%= Menuitems[count].side %></td>
-                        <td class="text-center col-2"><%= Menuitems[count].drink %></td>
-                        <td class="text-center col-2"><%= Menuitems[count].sauce %></td>
-                        <td class="text-center col-2"><%= Menuitems[count].price %></td>
+                        <th class="text-center">Name</th>
+                        <th class="text-center">Side</th>
+                        <th class="text-center">Drink</th>
+                        <th class="text-center">Sauce</th>
+                        <th class="text-center">Price</th>
+                        <th class="text-center">Edit</th>
+                        <th class="text-center">Delete</th>
                     </tr>
-                <%} %>
+                </thead>
+                <tbody>
+                    <% for (let count = 0; count < Menuitems.length; count++) { %>
+                        <tr>
+                            <td class="text-center"><%= Menuitems[count].name %></td>
+                            <td class="text-center"><%= Menuitems[count].side %></td>
+                            <td class="text-center"><%= Menuitems[count].drink %></td>
+                            <td class="text-center"><%= Menuitems[count].sauce %></td>
+                            <td class="text-center"><%= Menuitems[count].price %></td>
+                            <td class="text-center">
+                                <a href="/menu/edit/<%= Menuitems[count]._id %>" class="btn btn-primary">Edit</a>
+                            </td>
+                            <td class="text-center">
+                                <a href="/menu/delete/<%= Menuitems[count]._id %>" class="btn btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    <% } %>
+                </tbody>
             </table>
         </div>
     </div>

@@ -1,0 +1,58 @@
+<%- include('../partials/header.ejs') %>
+
+<main class="container">
+    <div class="row">
+        <div class="offset-md-3 col-md-6">
+            <h1> Edit Item in Order</h1>
+            <form class="form" method="post">
+                <div class="form-group">
+                    <label for="mainTextField">Name</label>
+                    <input type="text" class="form-control" id="mainTextField"
+                    placeholder="Enter main item"
+                    name="name"
+                    required>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="sideTextField">Side</label>
+                    <input type="text" class="form-control" id="sideTextField"
+                    placeholder="Enter side item"
+                    name="side"
+                    required>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="drinkTextField">Drink</label>
+                    <input type="text" class="form-control" id="drinkTextField"
+                    placeholder="Enter drink"
+                    name="drink"
+                    >
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="sauceTextField">Sauce</label>
+                    <input type="text" class="form-control" id="sauceTextField"
+                    placeholder="Enter sauce"
+                    name="sauce"
+                    >
+                </div>
+                <br>
+                <div class="mb-3">
+                    <label for="priceTextField">Price</label>
+                    <div class="input-group">
+                        <span class="input-group-text">$</span>
+                        <input type="text" class="form-control" id="priceTextField"
+                        placeholder="Enter price of combo"
+                        name="price"
+                        >
+                    </div>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary">
+                    Add data
+                </button>
+                <a href="/menu" class="btn btn-warning">Cancel</a>
+            </form>
+        </div>
+    </div>
+</main>

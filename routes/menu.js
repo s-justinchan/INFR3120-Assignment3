@@ -23,7 +23,7 @@ router.get('/',async(req,res,next) => {
 router.get('/add',async(req,res,next)=>{
     try {
         res.render('Menu/add', {
-            title: 'Add book to Database'
+            title: 'Add menu items to order'
         })
     }
     catch (err){
@@ -44,7 +44,7 @@ router.post('/add',async(req,res,next) => {
             "price":req.body.price,
         });
         Menu.create(newMenu).then(() => {
-            res.redirect('/')
+            res.redirect('/menu')
         });
     }
     catch (err) {
@@ -55,6 +55,8 @@ router.post('/add',async(req,res,next) => {
     }
 });
 
+
+// Edit - GET
 router.get('/edit/:id', async(req,res,next) => {
     try {
         const id = req.params.id;
@@ -70,34 +72,37 @@ router.get('/edit/:id', async(req,res,next) => {
     }
 });
 
+// Edit - POST
 router.post('/edit/:id', async(req,res,next) => {
     try {
         let id = req.params.id;
         const updateData = await Menu({
             "_id":id,
-            "name":req.body.title,
+            "name":req.body.name,
             "side":req.body.side,
             "drink":req.body.drink,
             "sauce":req.body.sauce,
             "price":req.body.price,
         })
         Menu.findByIdAndUpdate(id,updateData).then(()=> {
-            res.redirect('/')
+            res.redirect('/menu')
         })
     } 
     catch (err) {
         console.error(err);
-        res.render('Books/table',{
+        res.render('Menu/items',{
             error:'Error on Server'
         })
     }
 });
 
+
+// Delete
 router.get('/delete/:id', async(req,res,next) => {
     try {
         const id = req.params.id;
         Menu.deleteOne({_id:id}).then(() => {
-            res.redirect('/')
+            res.redirect('/menu')
         })
     }
     catch (err) {
